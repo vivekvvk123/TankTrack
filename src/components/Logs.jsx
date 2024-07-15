@@ -16,6 +16,7 @@ function Logs() {
     try {
       const response = await fetch("http://localhost:3000/registration");
       const data = await response.json();
+      data.reverse()
       setData(data);
       console.log(data);
     } catch (err) {

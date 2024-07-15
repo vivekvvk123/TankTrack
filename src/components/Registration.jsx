@@ -33,14 +33,15 @@ function Registration() {
     setOwnerPhotoBlob(null);
   };
 
+
   const uploadImageToImgBB = async (imageBlob) => {
     try {
       const formData = new FormData();
-      formData.append("key", "31cfe7295d591e758c8f72be5ab685cd");
+      formData.append("key", process.env.REACT_APP_API_KEY);
       formData.append("image", imageBlob);
 
       const response = await fetch(
-        "https://api.imgbb.com/1/upload?key=31cfe7295d591e758c8f72be5ab685cd",
+        `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_API_KEY}`,
         {
           method: "POST",
           body: formData,
@@ -263,9 +264,6 @@ function Registration() {
 
 export default Registration;
 
-
-
-
 // Old code
 
 // import React, { createContext, useEffect, useState } from "react";
@@ -300,10 +298,6 @@ export default Registration;
 //       formData.append("image", imageBlob);
 
 
-//       const response = await fetch("https://api.imgbb.com/1/upload?key=31cfe7295d591e758c8f72be5ab685cd", {
-//         method: "POST",
-//         body: formData
-//       });
 
 //       if (response.ok) {
 //         const data = await response.json();
@@ -351,7 +345,6 @@ export default Registration;
 
 //     console.log(dataArray);
 //   };
-
 
 //   // useEffect(() => {
 //   //   let savedDetails = localStorage.getItem("details");
@@ -520,5 +513,3 @@ export default Registration;
 // }
 
 // export default Registration;
-
-
